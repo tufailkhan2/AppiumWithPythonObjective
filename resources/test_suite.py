@@ -1,8 +1,8 @@
 import pytest
-from tests.android_apk_installation_appium_test import AndroidApkInstallationAppiumTest
+from tests.test_android_apk_installation_appium import AndroidApkInstallationAppiumTest
 
 
-@pytest.fixture
+@pytest.fixture()
 def android_app(request):
     android_app = AndroidApkInstallationAppiumTest()
     android_app.setUp()
