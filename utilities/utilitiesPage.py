@@ -30,24 +30,5 @@ class PageUtils(BaseClass):
             checkbox.click()
             checked_checkbox_texts.append(checkbox.text)
 
-        print(checked_checkbox_texts)
-
-        elements_checked = self.get_driver().find_elements(By.CLASS_NAME, 'android.widget.CheckedTextView')
-        checked_indices = [index for index, element in enumerate(elements_checked) if element.text in
-                           checked_checkbox_texts]
-        print('The indices returned are: ', checked_indices)
-
-        delete_icon_class = 'android.widget.ImageView'
-
-        delete_icons = self.get_driver().find_elements(By.CLASS_NAME, delete_icon_class)
-
-        for index in checked_indices:
-            if 0 <= index < len(delete_icons):
-                delete_icon = delete_icons[index+1]
-                delete_icon.click()
-                # Perform any other actions you need on the delete icon
-            else:
-                print(f"Index {index} is out of bounds.")
-
         return checked_checkbox_texts
 
